@@ -28,14 +28,16 @@ typedef enum opr Operator;
 - (IBAction)buttonClicked:(UIButton *)sender {
     UIButton *btn = (UIButton * )sender; //위에 ID * 로 넘어왔을 경우 형변환
     int value = (int)btn.tag;
+    
+    currentValue =currentValue * 10 + value;
 
-    if (currentOpr == none)
-    {
-        currentValue =currentValue * 10 + value;
-    }
-    else{
-        currentValue = value;
-    }
+    //    if (currentOpr == none)
+//    {
+//        currentValue =currentValue * 10 + value;
+//    }
+//    else{
+//        currentValue = value;
+//    }
     self.myLabel.text = [NSString stringWithFormat:@"%d", currentValue];  //문자열 처리를 위해 주로 사용 되는 stringWithFormat
     
 //    생성된 정보는 스토리보드에도 저장 되니 삭제시 주의!(왼쪽 똥글 뱅이 참조)
@@ -63,6 +65,7 @@ typedef enum opr Operator;
             break;
     }
     [calc setAccumulator:currentValue];
+    currentValue = 0;
 }
 - (IBAction)clickEqual:(id)sender {
     
