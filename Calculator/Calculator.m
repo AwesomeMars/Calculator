@@ -20,7 +20,8 @@
 
 -(void)clear
 {
-    self.accumulator = 0;
+//    self.accumulator = 0;
+    _accumulator = 0; //으로 사용 가능(@synthesize
 }
 
 //-(double) accumulator
